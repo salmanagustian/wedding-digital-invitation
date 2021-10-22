@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+      font-family: Signature;
+      font-display: swap;
+      font-weight: 400;
+      src: url("/mywedding/public/assets/fonts/BrittanySignature.ttf");
+    }
+    @font-face {
+      font-family: Greenlight Script;
+      font-display: swap;
+      font-weight: 200;
+      src: url("/mywedding/public/assets/fonts/GreenlightScript.ttf");
+    }
+    @font-face {
+      font-family: Nermola Script;
+      font-display: swap;
+      font-weight: 300;
+      src: url("/mywedding/public/assets/fonts/NermolaScript.ttf");
+    }
+    @font-face {
+      font-family: Scarlet;
+      font-display: swap;
+      src: url("/mywedding/public/assets/fonts/Scarletty.ttf");
+    }
+}
