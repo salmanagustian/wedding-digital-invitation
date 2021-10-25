@@ -8,6 +8,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('css/uikit.css') }}"> --}}
         
         <style>
             h1,
@@ -107,9 +108,126 @@
                 
             }
 
+            /** music box */
+            .music-box {
+                position: fixed;
+                width: 37px;
+                height: 160px;
+                z-index: 9;
+                bottom: 81px;
+                right: 10px;
+            }
+
+            .music-box .music-holder {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                right: 0;
+                bottom: -30px;
+                visibility: hidden;
+                opacity: 0;
+                -webkit-transition: all 0.5s ease-out;
+                -o-transition: all 0.5s ease-out;
+                transition: all 0.5s ease-out;
+            }
+
+            .music-box .music-holder iframe {
+                width: 100%;
+                height: 100%;
+            }
+
+            .music-box button {
+                
+                background: #FBFBFB;
+                box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+                width: 37px;
+                height: 37px;
+                font-size: 18px;
+                font-size: 1rem;
+                outline: 0;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                right: 0;
+                bottom: 20px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -o-border-radius: 50%;
+                -ms-border-radius: 50%;
+                border-radius: 50%;
+                border: 0px;
+            }
+
+            .music-box button i {
+                font-size: 20px;
+            }
+
+            .music-box .toggle-music-box {
+                top: -50px;
+                visibility: visible;
+                opacity: 1;
+
+            }
+
+            .music {
+                padding: 0;
+                background: none !important;
+                position: relative;
+                top: 103px;
+                right: 180px;
+            }
+
+            .music:focus {
+                outline: none;
+            }
+
+            .uk-icon-image {
+                width: 20px;
+                height: 20px;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                vertical-align: middle;
+            }
+
+            .uk-icon {
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                overflow: visible;
+                font: inherit;
+                color: inherit;
+                text-transform: none;
+                padding: 0;
+                background-color: transparent;
+                display: inline-block;
+                fill: currentcolor;
+                line-height: 0;
+            }
+
+            /* .icon-menu>a {
+                padding: 8 px 9 px !important;
+                margin: 0 5 px;
+            } */
+            .uk-active>a>img {
+                opacity: .6;
+                height: 30px;
+                filter: invert(1);
+            }
+
+            .uk-active {
+                background: rgb(214, 186, 141);
+                border-radius: 8px;
+                padding:  8px 9px !important;
+            }
+
+
         </style>
     </head>
     <body>
+        <audio id="audio" autoplay loop>
+            <source src="{{ asset('assets/music/music.mp3') }}">
+        </audio>
     {{-- <div class="container mx-auto"> --}}
         <section class="bg-cover bg-center" style="background-image: url({{ url('assets/images/bg-small.jpg') }})">
             <div class="outer-cover px-2.5 pt-5 pb-16">
@@ -146,18 +264,18 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 md:gap-2 lg:gap-6 mx-auto">
                         <div class="text-center">
                             <div class="pl mx-auto"></div>
-                            <h2 class="py-3 m-name text-lg sm:text-md md:text-xl lg:text-xl">Muhammad Salman Agustian, S.Kom.</h2>
+                            <h2 class="py-3 m-name text-xl sm:text-lg md:text-lg lg:text-lg">Muhammad Salman Agustian, S.Kom.</h2>
                             {{-- <a href="" class="">@salmanagustian</a> --}}
-                            <p class="text-xs mb-10">
+                            <p class="text-sm mb-10">
                                 Putra dari Bpk H. Agus Suryana <br>& Ibu Titin Sunarti
                             </p>
                         </div>
                         <div class="text-center">
                             <div class="pw mx-auto"></div>
-                            <h2 class="py-3 m-name text-lg sm:text-md md:text-xl lg:text-xl">Khansa Izzatun Nissa, S.Kom.</h2>
+                            <h2 class="py-3 m-name text-xl sm:text-lg md:text-lg lg:text-lg">Khansa Izzatun Nissa, S.Kom.</h2>
                             {{-- <a href="" class="">@zakhansa</a> --}}
-                            <p class="text-xs mb-12 sm:mb-20 md:mb-20 lg:mb-20">
-                                Putri dari Bpk Iwan Sumantri (Alm) <br>& Ibu Indrawati
+                            <p class="text-sm mb-12 sm:mb-20 md:mb-20 lg:mb-20">
+                                Putri dari Bpk. (Alm) Iwan Sumantri <br>& Ibu Indrawati
                             </p>
                         </div>
                     </div>
@@ -174,104 +292,152 @@
                         </footer>
                     </blockquote>
                 </div>
+
             </div>
         </section>
 
-        <section id="acara" class="acara-cover" style="background-color: #807d71">
-            <div class="px-2.5 py-10 text-md font-light">
-                <h2 class="text-3xl yn-color text-center">
-                    Save The Date
-                </h2>
+       
+    
+    {{-- <div id="my_id" uk-modal="" bg-close="false" class="uk-modal uk-flex uk-open" tabindex="0">
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-text-center " style="background: transparent; background-image: url({{ url('assets/images/evp.png') }}); padding:20px 15px 60px 15px; background-position: center;
+        background-repeat: unset;
+        background-size: cover; border-radius:16px;  height: 400px;
+        width: 342px;
+        ">
+        <p class="uk-text-medium uk-margin-remove-bottom txt-simple" style="margin-top:69px;">HALLO</p>
+        <p class="uk-text-bold uk-margin-remove-bottom" style="font-size:16px;
+        font-weight: 400; margin-top:8px;">
+            </p>
+        <p class="uk-text-medium txt-simple">YOU'RE INVITED TO OUR WEDDING</p>
+        
+            <h2 class="uk-text-center uk-margin-remove yn-color" style="line-height:1; margin-bottom:9px !important; font-size:28px;">
+                Khansa &amp; Salman		</h2>
+            
+            <p class="uk-text-center">
+                <button id="play-sound" class="uk-button uk-button-primary uk-modal-close" type="button" style="
+        border-radius: .5rem;
+        background-color: #fff;
+        color: #333;
+        margin-top: 56px;
+        line-height: 34px;
+        padding-top: 4px;
+        font-weight: 400;">OPEN INVITATION</button>
+            </p>
+        </div>
+    </div> --}}
 
-                <div class="h-8"></div>
+    <!-- modal open invitation -->
+    <div class="fixed inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            
+            <!-- inset modal background -->
+            <div class="overlay fixed inset-0 bg-black bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
-                {{-- <p class="mb-2 text-2xl font-light text-center" style="color: #cbb898">Akad & Resepsi</p>
-                <p class="text-center">07 November 2021</p>
-                <p class="text-sm text-center text-md">(Pukul 08.00 - 14.00 WIB)</p> --}}
-                {{-- <div class="h-5"></div> --}}
+            <!-- This element is to trick the browser into centering the modal contents. -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-
-                <div class="bg-blue-50 py-2 px-4 rounded opacity-60">
-                    <div class="space-x-3 text-center font-light" style="color: #cbb898">
-                        <div class="inline-block">
-                            <span class="text-3xl block" id="days"></span>
-                            Hari
-                        </div>
-                        <div class="inline-block">
-                            <span class="text-3xl block" id="hours"></span>
-                            Jam
-                        </div>
-                        <div class="inline-block">
-                            <span class="text-3xl block" id="minutes"></span>
-                            Menit
-                        </div>
-                        <div class="inline-block">
-                            <span class="text-3xl block" id="seconds"></span>
-                            Detik
+            <!-- modal panel invitation -->
+            <div class="modal-panel z-10 inline-block align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                style="background: transparent; background-image: url({{ url('assets/images/evp.png') }}); padding:20px 15px 60px 15px; background-position: center;
+                background-repeat: unset;
+                background-size: cover;
+                height: 400px;
+                width: 342px;">
+                <div>
+                    <p class="text-center text-sm mt-20"> HALLO </p>
+                    <p class="text-center text-sm py-4">YOU'RE INVITED TO OUR WEDDING</p>
+                    <h2 class="text-center yn-color " style="font-size: 28px">Khansa &amp; Salman</h2>
+                </div>
+                <div class="text-center">
+                    <button class="mt-16 px-6 py-2 rounded-lg font-normal" id="open-invitation" style="background-color:#E7E5E4; color:#78716C;">OPEN INVITATION</button>
+                </div>
+                {{-- <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                    <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                        <!-- Heroicon name: outline/exclamation -->
+                        <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                        Deactivate account
+                        </h3>
+                        <div class="mt-2">
+                        <p class="text-sm text-gray-500">
+                            Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.
+                        </p>
                         </div>
                     </div>
+                    </div>
                 </div>
-               
-                
-                <div class="h-10"></div>
-
-                {{-- <div class="py-4">
-                    <p class="text-md text-center" style="font-family: Georgia, 'Times New Roman', Times, serif;">VILLA LAGENTA</p>
-                    <p class="text-sm text-center text-small">Jl. Kol. Masturi No.8, Lembang, Jawa Barat 40391</p>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    Deactivate
+                    </button>
+                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    Cancel
+                    </button>
                 </div> --}}
-                
-                <p class="text-sm text-center pt-4">
-                    Ungkapan terima kasih yang tulus dari kami apabila Bapak/Ibu/Teman-teman berkenan hadir dan memberikan do’a restu.
-                </p>
             </div>
-        </section>
-    {{-- </div> --}}
-      
+        </div>
+    </div>
+
+    <!-- navbar -->
+    <div id="container-navbar" class="w-full mx-auto sm:max-w-screen-sm md:max-w-screen-md py-4 px-4" style="bottom: 0px">
+        <div class="bg-white px-4 py-2 shadow-lg rounded-lg">
+            <nav class="navbar flex flex-wrap justify-center items-center relative">
+                <ul id="ynMn" class="flex justify-center items-center space-x-7 box-border m-0 p-6 list-none h-8 min-h-full" uk-scrollspy-nav="closest: li; scroll: true" style="color: #D6BA8D;">
+                    <li class="icon-menu uk-active"><a href="#opening" class="w-10 bg-gray-400 rounded-lg"><img src="https://yakinikah.com/assets/icons/icon-opening.svg" width="33" height="33" style="opacity: 0.6"></a></li>
+                    <li class="icon-menu"><a href="#mempelai" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-couple.svg" width="33" height="33" style="opacity: 0.6"></a></li>
+                    <li class="icon-menu"><a href="#acara" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-date.svg" width="33" height="33" style="opacity: 0.6"></a>
+                    </li>
+                    <li class="icon-menu"><a href="#gallery" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-gallery.svg" width="33" height="33" style="opacity: 0.6"></a></li>
+                    <li class="icon-menu"><a href="#bukutamu" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-chat.svg" width="33" height="33" style="opacity: 0.6"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- music box -->
+    <div class="music-box">
+        <button class="music-box-toggle-btn"></button>
+        <button class="music" id="unmute-sound">
+            <span class="uk-icon uk-icon-image" style="background-image: url({{ asset('assets/images/unmute.png') }})"></span>
+        </button>
+        <button class="music" id="mute-sound" style="display: none">
+            <span class="uk-icon uk-icon-image" style="background-image: url({{ asset('assets/images/mute.png') }})"></span>
+        </button>
+    </div>
+    
     </body>
 
+    {{-- <script src="{{ asset('js/uikit.js') }}"></script> --}}
     <script>
-        (function () {
-  const second = 1000,
-        minute = second * 60,
-        hour = minute * 60,
-        day = hour * 24;
+        const buttonOpenInvitation =  document.getElementById('open-invitation');
+        const overlay =  document.querySelector('.overlay');
+        const modalPanel =  document.querySelector('.modal-panel');
+        const audio =  document.getElementById('audio');
 
-  //I'm adding this section so I don't have to keep updating this pen every year :-)
-  //remove this if you don't need it
-  let today = new Date(),
-      dd = String(today.getDate()).padStart(2, "0"),
-      mm = String(today.getMonth() + 1).padStart(2, "0"),
-      yyyy = today.getFullYear(),
-      nextYear = yyyy + 1,
-      dayMonth = "09/30/",
-      birthday = dayMonth + yyyy;
-  
-  today = mm + "/" + dd + "/" + yyyy;
-  if (today > birthday) {
-    birthday = dayMonth + nextYear;
-  }
-  //end
-  
-  const countDown = new Date(birthday).getTime(),
-      x = setInterval(function() {    
+        buttonOpenInvitation.addEventListener('click', function() {
+            modalPanel.classList.add('hidden');
+            overlay.classList.add('hidden');
+            audio.play();
+        });
 
-        const now = new Date().getTime(),
-              distance = countDown - now;
+        document.getElementById('mute-sound').style.display = 'none';
+        document.getElementById('unmute-sound').addEventListener('click', function (event) {
+            document.getElementById('unmute-sound').style.display = 'none';
+            document.getElementById('mute-sound').style.display = 'inline-block';
+            document.getElementById('audio').pause();
+        });
 
-        document.getElementById("days").innerText = Math.floor(distance / (day)),
-          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
-
-        //do something later when date is reached
-        if (distance < 0) {
-          document.getElementById("headline").innerText = "It's my birthday!";
-          document.getElementById("countdown").style.display = "none";
-          document.getElementById("content").style.display = "block";
-          clearInterval(x);
-        }
-        //seconds
-      }, 0)
-  }());
+        document.getElementById('mute-sound').addEventListener('click', function (event) {
+            document.getElementById('mute-sound').style.display = 'none';
+            document.getElementById('unmute-sound').style.display = 'inline-block';
+            document.getElementById('audio').play();
+        });
+        // audio.play();
     </script>
 </html>
