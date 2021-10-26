@@ -251,7 +251,7 @@ a {
     color: var(--parimary)
 }
 
-/* h1,
+h1,
 h2,
 h3,
 h4,
@@ -259,8 +259,8 @@ h5 {
     font-family: Signature;
     font-weight: 500;
     padding: 8px 0;
-    font-size: 1.2rem;
-} */
+    font-size: 1.2rem
+}
 
 .midnight {
     font-family: Scarlet;
@@ -614,7 +614,7 @@ blockquote {
     line-height: 50px;
     text-transform: uppercase;
     clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
-    margin-top: -10px;
+    margin-top: -10px
 }
 
 .uk-width-expand {

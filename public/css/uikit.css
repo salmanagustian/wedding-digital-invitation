@@ -203,7 +203,7 @@ iframe {
 /*
  * Margins
  */
-p,
+/* p,
 ul,
 ol,
 dl,
@@ -212,9 +212,9 @@ address,
 fieldset,
 figure {
   margin: 0 0 20px 0;
-}
+} */
 /* Add margin if adjacent element */
-* + p,
+/* * + p,
 * + ul,
 * + ol,
 * + dl,
@@ -223,10 +223,10 @@ figure {
 * + fieldset,
 * + figure {
   margin-top: 20px;
-}
+} */
 /* Headings
  ========================================================================== */
-h1,
+/* h1,
 .uk-h1,
 h2,
 .uk-h2,
@@ -248,9 +248,9 @@ h6,
   font-weight: normal;
   color: #333;
   text-transform: none;
-}
+} */
 /* Add margin if adjacent element */
-* + h1,
+/* * + h1,
 * + .uk-h1,
 * + h2,
 * + .uk-h2,
@@ -268,7 +268,7 @@ h6,
 * + .uk-heading-xlarge,
 * + .uk-heading-2xlarge {
   margin-top: 40px;
-}
+} */
 /*
  * Sizes
  */
@@ -303,7 +303,7 @@ h6,
   line-height: 1.4;
 }
 /* Tablet landscape and bigger */
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
   h1,
   .uk-h1 {
     font-size: 2.625rem;
@@ -312,7 +312,7 @@ h6,
   .uk-h2 {
     font-size: 2rem;
   }
-}
+} */
 /* Lists
  ========================================================================== */
 ul,
@@ -5190,6 +5190,7 @@ ul.uk-nav-sub {
   padding-top: 0;
   border-top: 1px solid #e5e5e5;
 }
+
 /* ========================================================================
    Component: Navbar
  ========================================================================== */

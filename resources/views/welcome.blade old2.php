@@ -8,8 +8,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/uikit.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/invitation-dark.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('css/uikit.css') }}"> --}}
         
         <style>
             h1,
@@ -182,10 +181,50 @@
                 outline: none;
             }
 
+            .uk-icon-image {
+                width: 20px;
+                height: 20px;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                vertical-align: middle;
+            }
+
+            .uk-icon {
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                overflow: visible;
+                font: inherit;
+                color: inherit;
+                text-transform: none;
+                padding: 0;
+                background-color: transparent;
+                display: inline-block;
+                fill: currentcolor;
+                line-height: 0;
+            }
+
+            /* .icon-menu>a {
+                padding: 8 px 9 px !important;
+                margin: 0 5 px;
+            } */
+            .uk-active>a>img {
+                opacity: .6;
+                height: 30px;
+                filter: invert(1);
+            }
+
+            .uk-active {
+                background: rgb(214, 186, 141);
+                border-radius: 8px;
+                padding:  8px 9px !important;
+            }
+
 
         </style>
     </head>
-    <body uk-scrollspy="target: .yn-anim; cls: uk-animation-fade; delay: 350">
+    <body>
         <audio id="audio" autoplay loop>
             <source src="{{ asset('assets/music/music.mp3') }}">
         </audio>
@@ -257,58 +296,109 @@
             </div>
         </section>
 
+       
+    
+    {{-- <div id="my_id" uk-modal="" bg-close="false" class="uk-modal uk-flex uk-open" tabindex="0">
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-text-center " style="background: transparent; background-image: url({{ url('assets/images/evp.png') }}); padding:20px 15px 60px 15px; background-position: center;
+        background-repeat: unset;
+        background-size: cover; border-radius:16px;  height: 400px;
+        width: 342px;
+        ">
+        <p class="uk-text-medium uk-margin-remove-bottom txt-simple" style="margin-top:69px;">HALLO</p>
+        <p class="uk-text-bold uk-margin-remove-bottom" style="font-size:16px;
+        font-weight: 400; margin-top:8px;">
+            </p>
+        <p class="uk-text-medium txt-simple">YOU'RE INVITED TO OUR WEDDING</p>
         
-
-        <div id="my_id" uk-modal="" bg-close="false" class="uk-modal uk-flex uk-open" tabindex="0">
-            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-text-center " style="background: transparent; background-image: url({{ url('assets/images/evp.png') }}); padding:20px 15px 60px 15px; background-position: center;
-            background-repeat: unset;
-            background-size: cover; border-radius:16px;  height: 400px;
-            width: 342px;
-            ">
-            <p class="uk-text-medium uk-margin-remove-bottom txt-simple" style="margin-top:69px;">HALLO</p>
-            <p class="uk-text-bold uk-margin-remove-bottom" style="font-size:16px;
-            font-weight: 400; margin-top:8px;">
-                </p>
-            <p class="uk-text-medium txt-simple">YOU'RE INVITED TO OUR WEDDING</p>
+            <h2 class="uk-text-center uk-margin-remove yn-color" style="line-height:1; margin-bottom:9px !important; font-size:28px;">
+                Khansa &amp; Salman		</h2>
             
-                <h2 class="uk-text-center uk-margin-remove yn-color" style="line-height:1; margin-bottom:9px !important; font-size:28px;">
-                    Khansa &amp; Salman		</h2>
-                
-                <p class="uk-text-center">
-                    <button id="play-sound" class="uk-button uk-button-primary uk-modal-close" type="button" style="
-            border-radius: .5rem;
-            background-color: #fff;
-            color: #333;
-            margin-top: 56px;
-            line-height: 34px;
-            padding-top: 4px;
-            font-weight: 400;">OPEN INVITATION</button>
-                </p>
-            </div>
+            <p class="uk-text-center">
+                <button id="play-sound" class="uk-button uk-button-primary uk-modal-close" type="button" style="
+        border-radius: .5rem;
+        background-color: #fff;
+        color: #333;
+        margin-top: 56px;
+        line-height: 34px;
+        padding-top: 4px;
+        font-weight: 400;">OPEN INVITATION</button>
+            </p>
         </div>
+    </div> --}}
 
- 
+    <!-- modal open invitation -->
+    <div class="fixed inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            
+            <!-- inset modal background -->
+            <div class="overlay fixed inset-0 bg-black bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
-        <!-- navbar -->
-        <div id="navbar" class="uk-section uk-section-xsmall uk-section-muted uk-position-bottom uk-position-fixed bg-menu" style="z-index: 121; bottom: -78px;">
-            <div class="uk-container uk-container-small">
-                <div class="uk-text-small yn-menu">
-                    <nav class="uk-navbar" uk-navbar="">
-                        <div class="uk-navbar-center">
-                            <ul id="ynMn" class="uk-navbar-nav" uk-scrollspy-nav="closest: li; scroll: true">
-                                <li class="icon-menu uk-active"><a href="#opening" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-opening.svg') }}" alt="Icon Opening"></a></li>
-                                <li class="icon-menu"><a href="#mempelai" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-couple.svg') }}"></a></li>
-                                <li class="icon-menu"><a href="#acara" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-date.svg') }}"></a>
-                                </li>
-                                <li class="icon-menu"><a href="#gallery" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-gallery.svg') }}"></a></li>
-                                <li class="icon-menu"><a href="#bukutamu" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-chat.svg') }}"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+            <!-- This element is to trick the browser into centering the modal contents. -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- modal panel invitation -->
+            <div class="modal-panel z-10 inline-block align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                style="background: transparent; background-image: url({{ url('assets/images/evp.png') }}); padding:20px 15px 60px 15px; background-position: center;
+                background-repeat: unset;
+                background-size: cover;
+                height: 400px;
+                width: 342px;">
+                <div>
+                    <p class="text-center text-sm mt-20"> HALLO </p>
+                    <p class="text-center text-sm py-4">YOU'RE INVITED TO OUR WEDDING</p>
+                    <h2 class="text-center yn-color " style="font-size: 28px">Khansa &amp; Salman</h2>
                 </div>
+                <div class="text-center">
+                    <button class="mt-16 px-6 py-2 rounded-lg font-normal" id="open-invitation" style="background-color:#E7E5E4; color:#78716C;">OPEN INVITATION</button>
+                </div>
+                {{-- <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                    <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                        <!-- Heroicon name: outline/exclamation -->
+                        <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                        Deactivate account
+                        </h3>
+                        <div class="mt-2">
+                        <p class="text-sm text-gray-500">
+                            Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    Deactivate
+                    </button>
+                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    Cancel
+                    </button>
+                </div> --}}
             </div>
         </div>
+    </div>
+
+    <!-- navbar -->
+    <div id="container-navbar" class="w-full mx-auto sm:max-w-screen-sm md:max-w-screen-md py-4 px-4" style="bottom: 0px">
+        <div class="bg-white px-4 py-2 shadow-lg rounded-lg">
+            <nav class="navbar flex flex-wrap justify-center items-center relative">
+                <ul id="ynMn" class="flex justify-center items-center space-x-7 box-border m-0 p-6 list-none h-8 min-h-full" uk-scrollspy-nav="closest: li; scroll: true" style="color: #D6BA8D;">
+                    <li class="icon-menu uk-active"><a href="#opening" class="w-10 bg-gray-400 rounded-lg"><img src="https://yakinikah.com/assets/icons/icon-opening.svg" width="33" height="33" style="opacity: 0.6"></a></li>
+                    <li class="icon-menu"><a href="#mempelai" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-couple.svg" width="33" height="33" style="opacity: 0.6"></a></li>
+                    <li class="icon-menu"><a href="#acara" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-date.svg" width="33" height="33" style="opacity: 0.6"></a>
+                    </li>
+                    <li class="icon-menu"><a href="#gallery" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-gallery.svg" width="33" height="33" style="opacity: 0.6"></a></li>
+                    <li class="icon-menu"><a href="#bukutamu" uk-scroll=""><img src="https://yakinikah.com/assets/icons/icon-chat.svg" width="33" height="33" style="opacity: 0.6"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <!-- music box -->
     <div class="music-box">
@@ -323,33 +413,18 @@
     
     </body>
 
-    <script src="{{ asset('js/uikit.js') }}"></script>
+    {{-- <script src="{{ asset('js/uikit.js') }}"></script> --}}
     <script>
-        var prevScrollpos = window.pageYOffset;
-		window.onscroll = function () {
-			var currentScrollPos = window.pageYOffset;
-			if (prevScrollpos > currentScrollPos) {
-				document.getElementById("navbar").style.bottom = "0";
-			} else {
-				document.getElementById("navbar").style.bottom = "-78px";
-			}
-			prevScrollpos = currentScrollPos;
-		}
+        const buttonOpenInvitation =  document.getElementById('open-invitation');
+        const overlay =  document.querySelector('.overlay');
+        const modalPanel =  document.querySelector('.modal-panel');
+        const audio =  document.getElementById('audio');
 
-		// $(function () {
-			var modal = UIkit.modal("#my_id");
-			modal.show();
-		// });
-        // const buttonOpenInvitation =  document.getElementById('open-invitation');
-        // const overlay =  document.querySelector('.overlay');
-        // const modalPanel =  document.querySelector('.modal-panel');
-        // const audio =  document.getElementById('audio');
-
-        // buttonOpenInvitation.addEventListener('click', function() {
-        //     modalPanel.classList.add('hidden');
-        //     overlay.classList.add('hidden');
-        //     audio.play();
-        // });
+        buttonOpenInvitation.addEventListener('click', function() {
+            modalPanel.classList.add('hidden');
+            overlay.classList.add('hidden');
+            audio.play();
+        });
 
         document.getElementById('mute-sound').style.display = 'none';
         document.getElementById('unmute-sound').addEventListener('click', function (event) {
