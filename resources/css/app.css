@@ -27,3 +27,9 @@
       src: url("/mywedding/public/assets/fonts/Scarletty.ttf");
     }
 }
+
+@layer components {
+  .guestbook-form {
+    @apply tw-bg-gray-lighter tw-appearance-none tw-rounded tw-w-full tw-py-2 tw-px-4 tw-ring-opacity-20 focus:tw-ring focus:tw-ring-brown-lighter focus:tw-outline-none;
+  }
+}

@@ -427,13 +427,13 @@
                     <fieldset class="uk-fieldset">
                         <div class="uk-margin">
                             <div class="uk-form-label">Nama Tamu :</div>
-                            <input type="text" id="author" name="author" class="tw-bg-gray-lighter tw-appearance-none tw-rounded tw-w-full tw-py-2 tw-px-4 tw-ring-opacity-20 focus:tw-ring focus:tw-ring-brown-lighter focus:tw-outline-none">
+                            <input type="text" id="author" name="author" class="guestbook-form">
                             {{-- <span style="font-size:12px;"><span id="charName"></span></span> --}}
                         </div>
 
                         <div class="uk-margin">
                             <div class="uk-form-label">Pilih Kehadiran :</div>
-                            <select id="presence" name="presence" class="tw-bg-gray-lighter tw-appearance-none tw-rounded tw-w-full tw-py-2 tw-px-4 tw-ring-opacity-20 focus:tw-ring focus:tw-ring-brown-lighter focus:tw-outline-none" onchange="showDiv('hidden_div', this)">
+                            <select id="presence" name="presence" class="guestbook-form" onchange="showDiv('hidden_div', this)">
                                 <option value="yes" selected="">Berkenan hadir</option>
                                 <option value="no">Maaf tidak bisa hadir</option>
                             </select>
@@ -441,7 +441,7 @@
                     
                         <div id="hidden_div" class="uk-margin" style="display: block;">
                             <div class="uk-form-label">Jumlah Tamu:</div>
-                            <select id="person" name="person" class="uk-select">
+                            <select id="person" name="person" class="guestbook-form">
                                 
                                 <option value="1">1 Orang</option>
                                 <option value="2">2 Orang</option>
@@ -451,7 +451,7 @@
 
                         <div class="uk-margin">
                             <div class="uk-form-label">Isi Ucapan :</div>
-                            <textarea id="comment_content" name="comment_content"class="tw-bg-gray-lighter tw-appearance-none tw-rounded tw-w-full tw-py-2 tw-px-4 tw-ring-opacity-20 focus:tw-ring focus:tw-ring-brown-lighter focus:tw-outline-none" rows="5" placeholder="Ucapan Selamat" onkeyup="countComm(this)"></textarea>
+                            <textarea id="comment_content" name="comment_content"class="guestbook-form" rows="5" placeholder="Ucapan Selamat" onkeyup="countComm(this)"></textarea>
                             <span style="font-size:12px;"><span id="charNum"></span></span>
                         </div>
                         <!-- id undangan -->
