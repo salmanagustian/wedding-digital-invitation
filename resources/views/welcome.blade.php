@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Khansa&Salman</title>
+        <title>Khansa & Salman</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="{{ asset('css/uikit.css') }}">
         <link rel="stylesheet" href="{{ asset('css/invitation-dark.css') }}">
         
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/logo.ico') }}"/>
+
         <style>
             h1,
             h2,
