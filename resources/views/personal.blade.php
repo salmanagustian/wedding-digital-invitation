@@ -183,14 +183,23 @@
             .music:focus {
                 outline: none;
             }
-
+            
+            .wish_noimage_wrap {
+                width: 90% !important;
+                margin: 0.5 rem auto;
+                padding-top: 10 px;
+                padding-bottom: 10 px;
+                box-shadow: 2px 3px 7px 0px #eacab9;
+                background-color: #f9f7f961;
+                border: 1 px solid #fdfbf7;
+            }
 
         </style>
     </head>
     <body uk-scrollspy="target: .yn-anim; cls: uk-animation-fade; delay: 350">
-        {{-- <audio id="audio" autoplay loop>
+        <audio id="audio" autoplay loop>
             <source src="{{ asset('assets/music/music.mp3') }}">
-        </audio> --}}
+        </audio>
     {{-- <div class="container mx-auto"> --}}
         <section class="tw-bg-cover tw-bg-center" style="background-image: url({{ url('assets/images/bg-small.jpg') }})">
             <div class="outer-cover tw-px-2.5 tw-pt-5 tw-pb-16">
@@ -214,11 +223,11 @@
                 <img src="{{ asset('assets/images/bismillah.png') }}" class="tw-mx-auto tw-mb-3 tw-sm:mb-5" style="opacity: 0.7; filter: invert()" alt="Bismillah" width="212">
 
                 <p class=
-                    "tw-font-semibold tw-text-base tw-text-center 
+                    "tw-font-normal tw-text-base tw-text-center 
                     tw-py-2">
                     Assalamualaikum warahmatullahi wabarakatuh</p>
                 <p class=
-                    "tw-font-semibold tw-text-base tw-text-justify md:tw-text-center lg:tw-text-center 
+                    "tw-font-normal tw-text-base tw-text-justify md:tw-text-center lg:tw-text-center 
                     tw-py-4 tw-mb-10">
                     Dengan memohon rahmat dan ridho-Mu Ya
                     Allah, Kami bermaksud mengadakan acara pernikahan putra dan putri kami.</p>
@@ -229,7 +238,7 @@
                             <div class="pl tw-mx-auto"></div>
                             <h2 class="tw-py-3 m-name tw-text-xl">Muhammad Salman Agustian, S.Kom.</h2>
                             {{-- <a href="" class="">@salmanagustian</a> --}}
-                            <p class="tw-text-sm tw-font-semibold tw-mb-10">
+                            <p class="tw-text-sm tw-font-normal tw-mb-10">
                                 Putra dari Bpk H. Agus Suryana <br>& Ibu Titin Sunarti
                             </p>
                         </div>
@@ -237,7 +246,7 @@
                             <div class="pw tw-mx-auto"></div>
                             <h2 class="tw-py-3 m-name tw-text-xl">Khansa Izzatun Nissa, S.Kom.</h2>
                             {{-- <a href="" class="">@zakhansa</a> --}}
-                            <p class="tw-text-sm tw-font-semibold tw-mb-12 sm:tw-mb-20 md:tw-mb-20 lg:tw-mb-20">
+                            <p class="tw-text-sm tw-font-normal tw-mb-12 sm:tw-mb-20 md:tw-mb-20 lg:tw-mb-20">
                                 Putri dari Bpk. (Alm) Iwan Sumantri <br>& Ibu Indrawati
                             </p>
                         </div>
@@ -259,6 +268,7 @@
             </div>
         </section>
 
+        
         <section id="acara">
             <div class="uk-container uk-container-small">
                 <h2 class="tw-text-3xl yn-color tw-text-center uk-scrollspy-inview tw-mt-3"> Save The Date </h2>
@@ -296,7 +306,9 @@
                             <p style="margin:4px 0px 16px 0px; font-size:13px;">(Pukul 15.30 - 17.00 WIB)</p>
                             
                              -->
-                            <hr class="style-2w"  style="margin-top: 20px">
+                            <div class="tw-py-12 tw-mb-1">
+                                <img class="tw-mx-auto" src="{{ asset('assets/images/pemisah.png') }}" alt="divider">
+                            </div>
         
                             <p class="uk-card-title yn-color2" style="margin:8px; 0 8px 0;" uk-slideshow-parallax="y: 50,0,0; opacity: 1,1,0">Resepsi</p>
         
@@ -324,11 +336,13 @@
         
                             <a href="https://goo.gl/maps/GrcAzNeiZMVEhWzcA" class="uk-button uk-button-default uk-button-small btn-white" style="margin-top:16px; padding: 4px 16px; border-radius: 20px;">Liat Lokasi Via Google Map
                                 <span uk-icon="icon: arrow-right" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" points="10 5 15 9.5 10 14"></polyline><line fill="none" stroke="#000" x1="4" y1="9.5" x2="15" y2="9.5"></line></svg></span></a>
-                            
 
-                              <hr class="style-2w" style="margin-top: 20px">
+                                <div class="tw-py-12 tw-mb-1">
+                                    <img class="tw-mx-auto" src="{{ asset('assets/images/pemisah.png') }}" alt="divider">
+                                </div>
                                 <p style="font-size:14px; margin: 0px 0 16px 0;">
-                                    Ungkapan terima kasih yang tulus dari kami apabila Bapak/Ibu/Teman-teman berkenan hadir dan memberikan do’a restu.                        </p>
+                                    Ungkapan terima kasih yang tulus dari kami apabila Bapak/Ibu/Teman-teman berkenan hadir dan memberikan do’a restu.
+                                </p>
         
         
                         </div>
@@ -380,7 +394,6 @@
         </section>
 
         <section id="guess-book" class="uk-container uk-container-small">
-            <div class="tw-h-8"></div>
 
             <h2 class="tw-text-3xl yn-color tw-text-center"> Buku Tamu </h2>
 
@@ -425,17 +438,20 @@
 
             <!-- guest book -->
             <div id="buku" hidden class="uk-card uk-card-default uk-margin-top uk-card-body uk-align-center uk-width-1-2@m" style="">
+                {{-- <div class="tw--mt-8">
+                    <img class="tw-mx-auto tw-transform tw-rotate-180" src="{{ asset('assets/images/decor.png') }}" width="300" alt="decoration">
+                </div> --}}
                 <form method="POST" id="comment_form">
                     <fieldset class="uk-fieldset">
                         <div class="uk-margin">
                             <div class="uk-form-label">Nama Tamu :</div>
-                            <input type="text" id="author" name="author" class="guestbook-form">
+                            <input type="text" id="author" name="author" class="guestbook-form focus:tw-bg-gray-100">
                             {{-- <span style="font-size:12px;"><span id="charName"></span></span> --}}
                         </div>
 
                         <div class="uk-margin">
                             <div class="uk-form-label">Pilih Kehadiran :</div>
-                            <select id="presence" name="presence" class="guestbook-form" onchange="showDiv('hidden_div', this)">
+                            <select id="presence" name="presence" class="guestbook-form focus:tw-bg-gray-100" onchange="showDiv('hidden_div', this)">
                                 <option value="yes" selected="">Berkenan hadir</option>
                                 <option value="no">Maaf tidak bisa hadir</option>
                             </select>
@@ -443,7 +459,7 @@
                     
                         <div id="hidden_div" class="uk-margin" style="display: block;">
                             <div class="uk-form-label">Jumlah Tamu:</div>
-                            <select id="person" name="person" class="guestbook-form">
+                            <select id="person" name="person" class="guestbook-form focus:tw-bg-gray-100">
                                 
                                 <option value="1">1 Orang</option>
                                 <option value="2">2 Orang</option>
@@ -451,20 +467,23 @@
                             </select>
                         </div>
 
-                        <div class="uk-margin">
+                        <div class="uk-margin" style="margin-bottom: 0px">
                             <div class="uk-form-label">Isi Ucapan :</div>
-                            <textarea id="comment_content" name="comment_content"class="guestbook-form" rows="5" placeholder="Ucapan Selamat" onkeyup="countComm(this)"></textarea>
+                            <textarea id="comment_content" name="comment_content"class="guestbook-form focus:tw-bg-gray-100" rows="5" placeholder="Ucapan Selamat" onkeyup="countComm(this)"></textarea>
                             <span style="font-size:12px;"><span id="charNum"></span></span>
                         </div>
                         <!-- id undangan -->
                         <input type="hidden" name="comment_id" id="comment_id" value="81">
                     </fieldset>
-                    <button id="submit" class="uk-button uk-button-primary uk-width-1-1" style="margin-bottom:4px; background: #d6ba8d !important;" uk-toggle="target: #buku; animation:  uk-animation-slide-left, uk-animation-slide-left uk-animation-reverse;" aria-expanded="true">Kirim Pesan</button>
-                    <button class="tw-bg-gray-100 tw-text-black tw-text-base tw-font-medium tw-w-full tw-p-2 tw-mt-3 tw-rounded-lg" type="button" uk-toggle="target: #buku; animation:  uk-animation-slide-left, uk-animation-slide-left uk-animation-reverse;" aria-expanded="true">Batal</button>
+
+                    <div class="tw-h-4"></div>
+                    <button id="submit" class="tw-bg-brown-lighter tw-text-white tw-text-sm tw-w-full tw-p-2 tw-rounded-lg hover:tw-shadow-md" uk-toggle="target: #buku; animation:  uk-animation-slide-left, uk-animation-slide-left uk-animation-reverse;" aria-expanded="true">Kirim Pesan</button>
+                    <button class="tw-bg-gray-100 tw-text-black tw-text-sm tw-w-full tw-p-2 tw-mt-3 tw-rounded-lg" type="button" uk-toggle="target: #buku; animation:  uk-animation-slide-left, uk-animation-slide-left uk-animation-reverse;" aria-expanded="true">Batal</button>
+
+
                 </form>
             </div>
         </section>
-
 
         <section>
             <div class="tw-h-64"></div>
@@ -476,29 +495,23 @@
             background-size: cover; border-radius:16px;  height: 400px;
             width: 342px;
             ">
-            <p class="uk-text-medium uk-margin-remove-bottom txt-simple" style="margin-top:69px;">HALLO</p>
-            <p class="uk-text-bold uk-margin-remove-bottom" style="font-size:16px;
-            font-weight: 400; margin-top:8px;">
-                </p>
-            <p class="uk-text-medium txt-simple">YOU'RE INVITED TO OUR WEDDING</p>
-            
-                <h2 class="uk-text-center uk-margin-remove yn-color" style="line-height:1; margin-bottom:9px !important; font-size:28px;">
-                    Khansa &amp; Salman		</h2>
+
+                <div class="tw-mt-24 tw-text-center">
+                    <p class="uk-text-medium uk-margin-remove-bottom txt-simple">HALLO</p>
+                    <p class="uk-text-bold uk-margin-remove-bottom" style="font-size:16px;
+                    font-weight: 400; margin-top:8px;">
+                        </p>
+                    <p class="uk-text-medium txt-simple">YOU'RE INVITED TO OUR WEDDING</p>
+                    <h2 class="yn-color tw-mt-4" style="line-height:1; margin-bottom:9px !important; font-size:28px;">
+                        Khansa &amp; Salman	</h2>
+                </div>
+
+                <div class="tw-mt-20">
+                    <button id="play-sound" class="uk-modal-close tw-bg-white tw-text-gray-600 tw-text-xs tw-tracking-widest tw-py-2 tw-px-4 tw-rounded-lg tw-w-3/5" type="button">OPEN INVITATION</button>
+                </div>
                 
-                <p class="uk-text-center">
-                    <button id="play-sound" class="uk-button uk-button-primary uk-modal-close" type="button" style="
-            border-radius: .5rem;
-            background-color: #fff;
-            color: #333;
-            margin-top: 56px;
-            line-height: 34px;
-            padding-top: 4px;
-            font-weight: 400;">OPEN INVITATION</button>
-                </p>
             </div>
         </div>
-
- 
 
         <!-- navbar -->
         <div id="navbar" class="uk-section uk-section-xsmall uk-section-muted uk-position-bottom uk-position-fixed bg-menu" style="z-index: 121; bottom: -78px;">
@@ -531,7 +544,6 @@
                 <span class="uk-icon uk-icon-image" style="background-image: url({{ asset('assets/images/mute.png') }})"></span>
             </button>
         </div>
-
       
     
     </body>
