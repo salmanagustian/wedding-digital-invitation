@@ -60,7 +60,7 @@
                 -webkit-mask-repeat: no-repeat;
                 mask-position: center;
                 -webkit-mask-position: center;
-                background-image: url({{ url('assets/images/p01.jpg') }})
+                background-image: url({{ url('assets/images/p01-min.jpg') }})
             }
 
             .pw {
@@ -78,7 +78,7 @@
                 -webkit-mask-repeat: no-repeat;
                 mask-position: center;
                 -webkit-mask-position: center;
-                background-image: url({{ url('assets/images/p02.jpg') }})
+                background-image: url({{ url('assets/images/p02-min.jpg') }})
             }
 
             .m-name {
