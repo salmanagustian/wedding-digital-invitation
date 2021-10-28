@@ -2,7 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="title" content="Khansa & Salman">
+        <meta name="description" content="Landing page wedding personal Khansa & Salman">
+        <meta name="keywords" content="khansa & salman, wedding, wedding invitation, villa lagenta">
+        <meta name="author" content="Salman">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
         <title>Khansa & Salman</title>
 
         <!-- Fonts -->
@@ -27,7 +34,6 @@
             body {
                 background-color: #1e1d1b;
                 color: #fff;
-                
                 background-image: url({{ url('assets/images/diamond.svg') }})
             }
 
@@ -103,14 +109,6 @@
                 -webkit-text-fill-color: transparent;
             }
 
-            .cover {
-                width: 100%;
-                background-size: cover;
-                background-repeat: unset;
-                background-position: center;
-                
-            }
-
             /** music box */
             .music-box {
                 position: fixed;
@@ -134,13 +132,7 @@
                 transition: all 0.5s ease-out;
             }
 
-            .music-box .music-holder iframe {
-                width: 100%;
-                height: 100%;
-            }
-
             .music-box button {
-                
                 background: #FBFBFB;
                 box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
                 width: 37px;
@@ -169,7 +161,6 @@
                 top: -50px;
                 visibility: visible;
                 opacity: 1;
-
             }
 
             .music {
@@ -184,23 +175,15 @@
                 outline: none;
             }
             
-            .wish_noimage_wrap {
-                width: 90% !important;
-                margin: 0.5 rem auto;
-                padding-top: 10 px;
-                padding-bottom: 10 px;
-                box-shadow: 2px 3px 7px 0px #eacab9;
-                background-color: #f9f7f961;
-                border: 1 px solid #fdfbf7;
-            }
 
         </style>
     </head>
     <body uk-scrollspy="target: .yn-anim; cls: uk-animation-fade; delay: 350">
-        <audio id="audio" autoplay loop>
-            <source src="{{ asset('assets/music/music.mp3') }}">
-        </audio>
-    {{-- <div class="container mx-auto"> --}}
+        <div id="root">
+            {{-- <audio id="audio" autoplay loop>
+                    <source src="{{ asset('assets/music/music.mp3') }}">
+                </audio> --}}
+            {{-- <div class="container mx-auto"> --}}
         <section class="tw-bg-cover tw-bg-center" style="background-image: url({{ url('assets/images/bg-small.jpg') }})">
             <div class="outer-cover tw-px-2.5 tw-pt-5 tw-pb-16">
                 <div class="tw-p-4">
@@ -215,10 +198,7 @@
         </section>
 
         <section id="mempelai">
-            <div class="
-                md:tw-max-w-screen-md
-                tw-mx-auto 
-                tw-px-2.5 tw-pt-10 tw-pb-10">
+            <div class="sm:tw-max-w-screen-sm md:tw-max-w-screen-md lg:tw-max-w-screen-lg tw-mx-auto tw-px-2.5 tw-py-10">
 
                 <img src="{{ asset('assets/images/bismillah.png') }}" class="tw-mx-auto tw-mb-3 tw-sm:mb-5" style="opacity: 0.7; filter: invert()" alt="Bismillah" width="212">
 
@@ -227,16 +207,21 @@
                     tw-py-2">
                     Assalamualaikum warahmatullahi wabarakatuh</p>
                 <p class=
-                    "tw-font-normal tw-text-base tw-text-justify md:tw-text-center lg:tw-text-center 
+                    "tw-font-normal tw-text-base tw-text-justify md:tw-text-center lg:tw-hidden 
                     tw-py-4 tw-mb-10">
                     Dengan memohon rahmat dan ridho-Mu Ya
                     Allah, Kami bermaksud mengadakan acara pernikahan putra dan putri kami.</p>
+                <p class=
+                    "tw-hidden lg:tw-block tw-font-normal tw-text-base tw-text-justify md:tw-text-center 
+                    tw-py-4 tw-mb-16">
+                    Dengan memohon rahmat dan ridho-Mu Ya
+                    Allah, <br> Kami bermaksud mengadakan acara pernikahan putra dan putri kami.</p>
 
-                <div class="tw-lg:w-3/4 tw-lg:mx-auto">
+                <div class="lg:tw-w-4/5 lg:tw-mx-auto">
                     <div class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 sm:tw-gap-4 md:tw-gap-2 lg:tw-gap-6 tw-mx-auto">
                         <div class="tw-text-center">
                             <div class="pl tw-mx-auto"></div>
-                            <h2 class="tw-py-3 m-name tw-text-xl">Muhammad Salman Agustian, S.Kom.</h2>
+                            <h2 class="tw-py-3 m-name tw-text-1xl sm:tw-text-lg md:tw-text-1xl lg:tw-text-2xl">Muhammad Salman Agustian, S.Kom.</h2>
                             {{-- <a href="" class="">@salmanagustian</a> --}}
                             <p class="tw-text-sm tw-font-normal tw-mb-10">
                                 Putra dari Bpk H. Agus Suryana <br>& Ibu Titin Sunarti
@@ -244,7 +229,7 @@
                         </div>
                         <div class="tw-text-center">
                             <div class="pw tw-mx-auto"></div>
-                            <h2 class="tw-py-3 m-name tw-text-xl">Khansa Izzatun Nissa, S.Kom.</h2>
+                            <h2 class="tw-py-3 m-name tw-text-1xl sm:tw-text-lg md:tw-text-1xl lg:tw-text-2xl">Khansa Izzatun Nissa, S.Kom.</h2>
                             {{-- <a href="" class="">@zakhansa</a> --}}
                             <p class="tw-text-sm tw-font-normal tw-mb-12 sm:tw-mb-20 md:tw-mb-20 lg:tw-mb-20">
                                 Putri dari Bpk. (Alm) Iwan Sumantri <br>& Ibu Indrawati
@@ -445,21 +430,25 @@
                     <fieldset class="uk-fieldset">
                         <div class="uk-margin">
                             <div class="uk-form-label">Nama Tamu :</div>
-                            <input type="text" id="author" name="author" class="guestbook-form focus:tw-bg-gray-100">
-                            {{-- <span style="font-size:12px;"><span id="charName"></span></span> --}}
+                            <input type="text" id="guest_name" name="guest_name" class="guestbook-form">
                         </div>
+
+                        {{-- <div class="uk-margin">
+                            <div class="uk-form-label">Alamat Kamu:</div>
+                            <textarea name="guestaddress" rows="2" class="guestbook-form"></textarea>
+                        </div> --}}
 
                         <div class="uk-margin">
                             <div class="uk-form-label">Pilih Kehadiran :</div>
-                            <select id="presence" name="presence" class="guestbook-form focus:tw-bg-gray-100" onchange="showDiv('hidden_div', this)">
-                                <option value="yes" selected="">Berkenan hadir</option>
-                                <option value="no">Maaf tidak bisa hadir</option>
+                            <select id="guest_presence" name="guest_presence" class="guestbook-form" onchange="showDiv('hidden_div', this)">
+                                <option value="1" selected="">Berkenan hadir</option>
+                                <option value="0">Maaf tidak bisa hadir</option>
                             </select>
                         </div>
                     
                         <div id="hidden_div" class="uk-margin" style="display: block;">
                             <div class="uk-form-label">Jumlah Tamu:</div>
-                            <select id="person" name="person" class="guestbook-form focus:tw-bg-gray-100">
+                            <select id="guestperson" name="guestperson" class="guestbook-form">
                                 
                                 <option value="1">1 Orang</option>
                                 <option value="2">2 Orang</option>
@@ -469,11 +458,9 @@
 
                         <div class="uk-margin" style="margin-bottom: 0px">
                             <div class="uk-form-label">Isi Ucapan :</div>
-                            <textarea id="comment_content" name="comment_content"class="guestbook-form focus:tw-bg-gray-100" rows="5" placeholder="Ucapan Selamat" onkeyup="countComm(this)"></textarea>
-                            <span style="font-size:12px;"><span id="charNum"></span></span>
+                            <textarea id="guest_comment" name="guest_comment"class="guestbook-form" rows="5" placeholder="Ucapan Selamat"></textarea>
                         </div>
-                        <!-- id undangan -->
-                        <input type="hidden" name="comment_id" id="comment_id" value="81">
+                       
                     </fieldset>
 
                     <div class="tw-h-4"></div>
@@ -544,8 +531,8 @@
                 <span class="uk-icon uk-icon-image" style="background-image: url({{ asset('assets/images/mute.png') }})"></span>
             </button>
         </div>
+        </div>
       
-    
     </body>
 
     <script src="{{ asset('js/uikit.js') }}"></script>

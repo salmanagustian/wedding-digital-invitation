@@ -30,6 +30,6 @@
 
 @layer components {
   .guestbook-form {
-    @apply tw-bg-gray-lighter tw-appearance-none tw-rounded tw-w-full tw-py-2 tw-px-4 tw-ring-opacity-20 focus:tw-ring focus:tw-ring-brown-lighter focus:tw-outline-none;
+    @apply tw-bg-gray-lighter tw-appearance-none tw-rounded tw-w-full tw-py-2 tw-px-4 tw-ring-opacity-20 focus:tw-ring-2 focus:tw-ring-brown-lighter focus:tw-outline-none focus:tw-bg-gray-100;
   }
 }
