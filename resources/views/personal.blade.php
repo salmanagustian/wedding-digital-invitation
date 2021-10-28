@@ -184,7 +184,7 @@
                     <source src="{{ asset('assets/music/music.mp3') }}">
             </audio>
 
-            <section class="tw-bg-cover tw-bg-center" style="background-image: url({{ url('assets/images/bg-small.jpg') }})">
+            <section class="tw-bg-cover tw-bg-center" style="background-image: url({{ url('assets/images/gallery/cover.jpg') }})">
                 <div class="outer-cover tw-px-2.5 tw-pt-5 tw-pb-16">
                     <div class="tw-p-4">
                         <p class="tw-font-light tw-text-sm lg:tw-text-md lg:tw-font-normal tw-text-center" style="letter-spacing: 3px; color:#ffffffb3;">WEDDING INVITATION</p>
@@ -210,7 +210,7 @@
             </section>
 
             <section id="guess-book" class="uk-container uk-container-small">
-                <GuestBook></GuestBook>
+                @include('sections.guest-book')
             </section>
 
           
