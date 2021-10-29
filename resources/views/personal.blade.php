@@ -210,6 +210,26 @@
             </section>
 
         
+            <div class="uk-container uk-container-small">
+                <div class="tw-bg-white tw-w-full tw-py-5 tw-px-4 tw-h-32 tw-mb-4 tw-rounded-lg">
+                    <div class="tw-flex tw-space-x-2">
+                        <div class="tw-flex-none tw-h-12 tw-w-12 tw-rounded-full tw-bg-brown-lighter tw-relative"> </div>
+                        <div class="tw-min-w-0 tw-flex tw-flex-wrap tw-w-full tw-justify-between tw-relative">
+                            <p class="tw-text-gray-600 tw-font-semibold tw-break-all tw-ml-2">{{ @comment }}</p>
+                            <div>
+                                <span class="tw-text-xs tw-px-2 tw-font-medium tw-rounded-md tw-py-0.5 tw-bg-opacity-50 tw-bg-brown-lighter tw-text-yellow-900">
+                                    {{ @comment}}
+                                </span>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <div class="tw-flex-auto">
+                        <p class="tw-text-gray-600 tw-font-medium tw-mt-3">{{@comment }}</p>
+                    </div>
+        
+                </div>
+            </div>
 
          
 
