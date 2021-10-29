@@ -180,9 +180,9 @@
     </head>
     <body uk-scrollspy="target: .yn-anim; cls: uk-animation-fade; delay: 350">
         <div id="root">
-            <audio id="audio" autoplay loop>
+            {{-- <audio id="audio" autoplay loop>
                     <source src="{{ asset('assets/music/music.mp3') }}">
-            </audio>
+            </audio> --}}
 
             <section class="tw-bg-cover tw-bg-center" style="background-image: url({{ url('assets/images/gallery/cover.jpg') }})">
                 <div class="outer-cover tw-px-2.5 tw-pt-5 tw-pb-16">
@@ -201,7 +201,7 @@
                 @include('sections.mempelai')
             </section>
 
-            <section id="acara">
+            <section id="event">
                 @include('sections.acara')
             </section>
 
@@ -209,15 +209,13 @@
                 @include('sections.gallery')
             </section>
 
-            <section id="guess-book" class="uk-container uk-container-small">
-                @include('sections.guest-book')
-            </section>
+        
 
-          
+         
 
-            <section>
-                <div class="tw-h-64"></div>
-            </section>
+            <router-view></router-view>
+
+            <div class="tw-h-64"></div>
 
             <div id="my_id" uk-modal="" bg-close="false" class="uk-modal uk-flex uk-open" tabindex="0">
                 <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-text-center " style="background: transparent; background-image: url({{ url('assets/images/evp.png') }}); padding:20px 15px 60px 15px; background-position: center;
@@ -252,10 +250,10 @@
                                 <ul id="ynMn" class="uk-navbar-nav" uk-scrollspy-nav="closest: li; scroll: true">
                                     <li class="icon-menu uk-active"><a href="#opening" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-opening.svg') }}" alt="Icon Opening"></a></li>
                                     <li class="icon-menu"><a href="#mempelai" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-couple.svg') }}"></a></li>
-                                    <li class="icon-menu"><a href="#acara" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-date.svg') }}"></a>
+                                    <li class="icon-menu"><a href="#event" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-date.svg') }}"></a>
                                     </li>
                                     <li class="icon-menu"><a href="#gallery" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-gallery.svg') }}"></a></li>
-                                    <li class="icon-menu"><a href="#bukutamu" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-chat.svg') }}"></a>
+                                    <li class="icon-menu"><a href="#guest_book" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-chat.svg') }}"></a>
                                     </li>
                                 </ul>
                             </div>
