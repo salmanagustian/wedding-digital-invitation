@@ -8,11 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Guest extends Model
 {
     protected $table      = 'guest_book';
+    public    $hidden     = ['id'];
     public    $guarded    = [];
     public    $timestamps = true;
 
-    public function commented_at()
+    public function getCreatedAtAttribute($value)
     {
-        return Carbon::parse($this->attributes['created_at'])->translatedFormat('d F Y');
+        return Carbon::parse($value)->diffForHumans();
     }
+
+    // public function getCommentAttribute($value)
+    // {
+    //     return nl2br($value);
+    // }
 }

@@ -6,7 +6,7 @@
             <fieldset class="uk-fieldset">
                 <div class="uk-margin">
                     <div class="uk-form-label">Nama Tamu :</div>
-                    <input type="text" v-model="guest.name" class="guestbook-form">
+                    <input type="text" v-model="guest.name" class="guestbook-form" required>
                 </div>
 
                 <!-- <div class="uk-margin">
@@ -16,13 +16,13 @@
 
                 <div class="uk-margin">
                     <div class="uk-form-label">Pilih Kehadiran :</div>
-                    <select v-model="guest.presence" class="guestbook-form">
-                        <option value="1" :selected="true">Berkenan hadir</option>
+                    <select v-model="guest.presence" class="guestbook-form" @change="setPresence" required>
+                        <option value="1">Berkenan hadir</option>
                         <option value="0">Maaf tidak bisa hadir</option>
                     </select>
                 </div>
 
-                <div id="hidden_div" class="uk-margin">
+                <div :class="{ 'tw-hidden' : isHidden }">
                     <div class="uk-form-label">Jumlah Tamu:</div>
                     <select v-model="guest.person" class="guestbook-form">
                         <option value="1">1 Orang</option>
@@ -33,13 +33,14 @@
                 <div class="uk-margin" style="margin-bottom: 0px">
                     <div class="uk-form-label">Isi Ucapan :</div>
                     <textarea v-model="guest.comment" class="guestbook-form" rows="5"
-                        placeholder="Ucapan Selamat"></textarea>
+                        placeholder="Ucapan Selamat" required></textarea>
                 </div>
 
             </fieldset>
 
             <div class="tw-h-4"></div>
-            <button class="tw-bg-brown-lighter tw-text-white tw-text-sm tw-w-full tw-p-2 tw-rounded-lg hover:tw-shadow-md" :class="{ 'tw-opacity-50 tw-cursor-not-allowed' : isPressed }"
+            <button class="tw-bg-brown-lighter tw-text-white tw-text-sm tw-w-full tw-p-2 tw-rounded-lg hover:tw-shadow-md" 
+                :class="{ 'tw-opacity-50 tw-cursor-not-allowed' : isPressed }"
                 aria-expanded="true">Kirim Pesan</button>
             <button class="tw-bg-gray-100 tw-text-black tw-text-sm tw-w-full tw-p-2 tw-mt-3 tw-rounded-lg" type="button"
                 uk-toggle="target: #buku; animation:  uk-animation-slide-left, uk-animation-slide-left uk-animation-reverse;"
@@ -55,8 +56,12 @@ export default {
     data() {
         return {
             isPressed: false,
-            isSelected: true,
-            guest:{}
+            isHidden: false,
+            isComplete: false,
+            guest:{
+                presence: '1',
+                person: '1'
+            }
         }
     },
     methods:{
@@ -67,12 +72,25 @@ export default {
                 .post('comment/store', this.guest)
                 .then(({data}) => {
                     this.isPressed = false;
+                    this.isComplete = true;
                     this.guest.name = '';
                     this.guest.comment = '';
-                    this.$emit('completed', data)
+                    this.$emit('completed', data);
+
+
                 })
                 .catch(err => console.log(err))
+        },
 
+        setPresence() {
+            const valuePresence = this.guest.presence;
+
+            if(valuePresence == 0) {
+                this.isHidden = true;
+            } else {
+                this.isHidden = false;
+            }
+            console.log(this.guest.presence);
         }
     }
 }

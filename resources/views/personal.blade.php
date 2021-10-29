@@ -175,24 +175,34 @@
                 outline: none;
             }
             
+            
+            hr {
+                margin: 0 auto;
+                width: 35%;
+                margin-bottom: 20px;
+                margin-top: 10px;
+                border: 0;
+                height: 1px;
+                background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(206, 180, 108, 0.75), rgba(255, 255, 255, 0));
+            }
 
         </style>
     </head>
     <body uk-scrollspy="target: .yn-anim; cls: uk-animation-fade; delay: 350">
         <div id="root">
-            {{-- <audio id="audio" autoplay loop>
+            <audio id="audio" autoplay loop>
                     <source src="{{ asset('assets/music/music.mp3') }}">
-            </audio> --}}
+            </audio>
 
             <section class="tw-bg-cover tw-bg-center" style="background-image: url({{ url('assets/images/gallery/cover.jpg') }})">
                 <div class="outer-cover tw-px-2.5 tw-pt-5 tw-pb-16">
                     <div class="tw-p-4">
-                        <p class="tw-font-light tw-text-sm lg:tw-text-md lg:tw-font-normal tw-text-center" style="letter-spacing: 3px; color:#ffffffb3;">WEDDING INVITATION</p>
+                        <p class="tw-font-light tw-text-sm lg:tw-text-md lg:tw-font-normal tw-text-center uk-scrollspy-inview" style="letter-spacing: 3px; color:#ffffffb3;">WEDDING INVITATION</p>
                         <div class="tw-h-64"></div>
                         <div class="tw-py-4">
-                            <h2 class="tw-text-4xl lg:tw-text-5xl tw-text-center tw-font-light">Khansa & Salman</h2>
+                            <h2 class="tw-text-4xl lg:tw-text-5xl tw-text-center tw-font-light uk-scrollspy-inview">Khansa & Salman</h2>
                         </div>
-                        <p class="tw-text-center tw-font-light tw-text-xs lg:tw-text-lg lg:tw-font-normal" style="color: #bdaa8b; letter-spacing: 3px;">07.11.2021</p>
+                        <p class="tw-text-center tw-font-light tw-text-xs lg:tw-text-lg lg:tw-font-normal uk-scrollspy-inview" style="color: #bdaa8b; letter-spacing: 3px;">07.11.2021</p>
                     </div>
                 </div>
             </section>
@@ -201,37 +211,67 @@
                 @include('sections.mempelai')
             </section>
 
-            <section id="event">
+            <section id="acara">
                 @include('sections.acara')
             </section>
 
             <section id="gallery" class="uk-section uk-section-default bg-f2" style="padding-bottom: 40px;">
-                @include('sections.gallery')
-            </section>
-
-        
-            <div class="uk-container uk-container-small">
-                <div class="tw-bg-white tw-w-full tw-py-5 tw-px-4 tw-h-32 tw-mb-4 tw-rounded-lg">
-                    <div class="tw-flex tw-space-x-2">
-                        <div class="tw-flex-none tw-h-12 tw-w-12 tw-rounded-full tw-bg-brown-lighter tw-relative"> </div>
-                        <div class="tw-min-w-0 tw-flex tw-flex-wrap tw-w-full tw-justify-between tw-relative">
-                            <p class="tw-text-gray-600 tw-font-semibold tw-break-all tw-ml-2">{{ @comment }}</p>
-                            <div>
-                                <span class="tw-text-xs tw-px-2 tw-font-medium tw-rounded-md tw-py-0.5 tw-bg-opacity-50 tw-bg-brown-lighter tw-text-yellow-900">
-                                    {{ @comment}}
-                                </span>
-                            </div>
+                <div class="uk-container uk-container-small">
+                    <h2 class="tw-text-3xl sm:tw-text-4xl tw-mb-8 uk-text-center midnight yn-color yn-anim uk-scrollspy-inview " style="">
+                        Gallery
+                    </h2>
+                    <div class="uk-child-width-1-2 uk-child-width-1-4@m uk-grid" uk-grid=""
+                        uk-lightbox="animation: slide">
+                        <div class="uk-first-column">
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/1.jpg') }}">
+                                <img class="thumb-gallery" src="{{ asset('assets/images/gallery/1.jpg') }}">
+                            </a>
                         </div>
-                      
+                        <div>
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/2.jpg') }}">
+                                <img class="thumb-gallery" src="{{ asset('assets/images/gallery/2.jpg') }}">
+                            </a>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/3.jpg') }}"
+                            style="">
+                                <img class="thumb-gallery" src="{{ asset('assets/images/gallery/3.jpg') }}">
+                            </a>
+                        </div>
+                        <div class="uk-grid-margin">
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/6.jpg') }}"
+                            style="">
+                                <img class="thumb-gallery" src="{{ asset('assets/images/gallery/6.jpg') }}">
+                            </a>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/4.jpg') }}"
+                                style="">
+                                <img class="thumb-gallery" src="{{ asset('assets/images/gallery/4.jpg') }}">
+                            </a>
+                        </div>
+                        <div class="uk-grid-margin">
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/5.jpg') }}"
+                style="">
+                <img class="thumb-gallery" src="{{ asset('assets/images/gallery/5.jpg') }}">
+            </a>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/7.jpg') }}"
+                            style="">
+                            <img class="thumb-gallery" src="{{ asset('assets/images/gallery/7.jpg') }}">
+                        </a>
+                        </div>
+                        <div class="uk-grid-margin">
+                            <a class="uk-inline yn-anim uk-scrollspy-inview " href="{{ asset('assets/images/gallery/8.jpg') }}"
+                style="">
+                <img class="thumb-gallery" src="{{ asset('assets/images/gallery/8.jpg') }}">
+            </a>
+                        </div>
                     </div>
-                    <div class="tw-flex-auto">
-                        <p class="tw-text-gray-600 tw-font-medium tw-mt-3">{{@comment }}</p>
-                    </div>
-        
+                   
                 </div>
-            </div>
-
-         
+            </section>
 
             <router-view></router-view>
 
@@ -265,15 +305,14 @@
             <div id="navbar" class="uk-section uk-section-xsmall uk-section-muted uk-position-bottom uk-position-fixed bg-menu" style="z-index: 121; bottom: -78px;">
                 <div class="uk-container uk-container-small">
                     <div class="uk-text-small yn-menu">
-                        <nav class="uk-navbar" uk-navbar="">
+                        <nav class="uk-navbar" uk-navbar>
                             <div class="uk-navbar-center">
                                 <ul id="ynMn" class="uk-navbar-nav" uk-scrollspy-nav="closest: li; scroll: true">
-                                    <li class="icon-menu uk-active"><a href="#opening" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-opening.svg') }}" alt="Icon Opening"></a></li>
-                                    <li class="icon-menu"><a href="#mempelai" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-couple.svg') }}"></a></li>
-                                    <li class="icon-menu"><a href="#event" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-date.svg') }}"></a>
-                                    </li>
-                                    <li class="icon-menu"><a href="#gallery" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-gallery.svg') }}"></a></li>
-                                    <li class="icon-menu"><a href="#guest_book" uk-scroll=""><img src="{{ asset('assets/images/menu/icon-chat.svg') }}"></a>
+                                    <li class="icon-menu uk-active"><a href="#opening" uk-scroll><img src="{{ asset('assets/images/menu/icon-opening.svg') }}" alt="Icon Opening"></a></li>
+                                    <li class="icon-menu"><a href="#mempelai" uk-scroll><img src="{{ asset('assets/images/menu/icon-couple.svg') }}"></a></li>
+                                    <li class="icon-menu"><a href="#acara" uk-scroll><img src="{{ asset('assets/images/menu/icon-date.svg') }}"></a> </li>
+                                    <li class="icon-menu"><a href="#gallery" uk-scroll><img src="{{ asset('assets/images/menu/icon-gallery.svg') }}"></a></li>
+                                    <li class="icon-menu"><a href="#bukutamu" uk-scroll><img src="{{ asset('assets/images/menu/icon-chat.svg') }}"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -297,6 +336,7 @@
     </body>
 
     <script src="{{ asset('js/uikit.js') }}"></script>
+    
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script>
@@ -319,5 +359,15 @@
             document.getElementById('audio').play();
         });
         
+        window.onscroll = function () {
+    const currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.bottom = "0";
+    } else {
+        document.getElementById("navbar").style.bottom = "-78px";
+    }
+    prevScrollpos = currentScrollPos;
+}
+
     </script>
 </html>
