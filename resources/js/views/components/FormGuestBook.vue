@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- guest book -->
-    <div id="buku" hidden class="uk-card uk-card-default uk-margin-top uk-card-body uk-align-center uk-width-1-2@m">
+    <div id="buku" hidden class="uk-card uk-card-default uk-margin-top uk-card-body uk-align-center uk-width-1-2@m" :class="{ 'tw-hidden' : isComplete }">
         <form @submit.prevent="storeComment" id="guest_form">
             <fieldset class="uk-fieldset">
                 <div class="uk-margin">
@@ -72,11 +72,25 @@ export default {
                 .post('comment/store', this.guest)
                 .then(({data}) => {
                     this.isPressed = false;
-                    this.isComplete = true;
                     this.guest.name = '';
                     this.guest.comment = '';
                     this.$emit('completed', data);
 
+
+                    const element = document.querySelector("#guest_comment");
+
+                    // smooth scroll to element and align it at the bottom
+                    // element.scrollIntoView({behavior: 'smooth'});
+
+                    const y = element.getBoundingClientRect().top + window.scrollY;
+                    console.log(y)
+                    window.scroll({
+                        top: y - 550,
+                        behavior: 'smooth'
+                    });
+
+                    this.isComplete = true;
+                
 
                 })
                 .catch(err => console.log(err))

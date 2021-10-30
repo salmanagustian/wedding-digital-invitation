@@ -2040,11 +2040,22 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('comment/store', this.guest).then(function (_ref) {
         var data = _ref.data;
         _this.isPressed = false;
-        _this.isComplete = true;
         _this.guest.name = '';
         _this.guest.comment = '';
 
         _this.$emit('completed', data);
+
+        var element = document.querySelector("#guest_comment"); // smooth scroll to element and align it at the bottom
+        // element.scrollIntoView({behavior: 'smooth'});
+
+        var y = element.getBoundingClientRect().top + window.scrollY;
+        console.log(y);
+        window.scroll({
+          top: y - 550,
+          behavior: 'smooth'
+        });
+        _this.isComplete = true;
+        _this.isComplete = false;
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -2107,6 +2118,18 @@ window.Vue = vue__WEBPACK_IMPORTED_MODULE_1__["default"];
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
 window.axios = (axios__WEBPACK_IMPORTED_MODULE_0___default());
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+window.onscroll = function () {
+  var currentScrollPos = window.pageYOffset;
+
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.bottom = "0";
+  } else {
+    document.getElementById("navbar").style.bottom = "-78px";
+  }
+
+  prevScrollpos = currentScrollPos;
+};
 
 /***/ }),
 
@@ -3084,7 +3107,7 @@ var render = function () {
                   "aria-expanded": "false",
                 },
               },
-              [_vm._v("Kirim Hadiah")]
+              [_vm._v("Gifts")]
             ),
             _vm._v(" "),
             _c(
@@ -3346,6 +3369,7 @@ var render = function () {
       {
         staticClass:
           "uk-card uk-card-default uk-margin-top uk-card-body uk-align-center uk-width-1-2@m",
+        class: { "tw-hidden": _vm.isComplete },
         attrs: { id: "buku", hidden: "" },
       },
       [

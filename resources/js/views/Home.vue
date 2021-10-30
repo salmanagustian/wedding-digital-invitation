@@ -10,7 +10,7 @@
                 Isi Buku Tamu</button>
 
                 <a class="uk-button uk-button-success uk-align-center" href="#modal-center" uk-toggle="" style="width: 171px;
-                    margin-top: 8px;" aria-expanded="false">Kirim Hadiah</a>
+                    margin-top: 8px;" aria-expanded="false">Gifts</a>
 
                 <!-- gifts -->
                 <div id="modal-center" class="uk-flex-top uk-modal" uk-modal="">
@@ -83,6 +83,7 @@ export default {
     methods: {
         addComment(comment) {
             this.comments.unshift(comment);
+            
         }
     },
 }
