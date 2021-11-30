@@ -1,5 +1,6 @@
 # Wedding Digital Invitation - 💍
 
+Website digital invitation sederhana ini dibuat menggunakan Vue.js, Tailwind.css, UI.kit dan framework laravel.
 
 ### Demo
-[Click this link](https://khansa-salman.com)
+[Klik disini untuk melihat demo](https://khansa-salman.com)
