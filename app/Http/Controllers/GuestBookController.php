@@ -9,7 +9,7 @@ class GuestBookController extends Controller
 {
     public function list()
     {
-        return Guest::latest()->get();
+        return Guest::latest()->paginate(3);
     }
 
     public function store(Request $request)

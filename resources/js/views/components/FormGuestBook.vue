@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- guest book -->
-    <div id="buku" hidden class="uk-card uk-card-default uk-margin-top uk-card-body uk-align-center uk-width-1-2@m" :class="{ 'tw-hidden' : isComplete }">
+    <div id="buku" hidden class="uk-card uk-card-default uk-margin-top uk-card-body uk-align-center uk-width-1-2@m">
         <form @submit.prevent="storeComment" id="guest_form">
             <fieldset class="uk-fieldset">
                 <div class="uk-margin">
@@ -41,7 +41,8 @@
             <div class="tw-h-4"></div>
             <button class="tw-bg-brown-lighter tw-text-white tw-text-sm tw-w-full tw-p-2 tw-rounded-lg hover:tw-shadow-md" 
                 :class="{ 'tw-opacity-50 tw-cursor-not-allowed' : isPressed }"
-                aria-expanded="true">Kirim Pesan</button>
+                uk-toggle="target: #buku; animation:  uk-animation-slide-left, uk-animation-slide-left uk-animation-reverse;"
+                aria-expanded="true">Kirim Ucapan</button>
             <button class="tw-bg-gray-100 tw-text-black tw-text-sm tw-w-full tw-p-2 tw-mt-3 tw-rounded-lg" type="button"
                 uk-toggle="target: #buku; animation:  uk-animation-slide-left, uk-animation-slide-left uk-animation-reverse;"
                 aria-expanded="true">Batal</button>
@@ -57,7 +58,6 @@ export default {
         return {
             isPressed: false,
             isHidden: false,
-            isComplete: false,
             guest:{
                 presence: '1',
                 person: '1'
@@ -75,23 +75,6 @@ export default {
                     this.guest.name = '';
                     this.guest.comment = '';
                     this.$emit('completed', data);
-
-
-                    const element = document.querySelector("#guest_comment");
-
-                    // smooth scroll to element and align it at the bottom
-                    // element.scrollIntoView({behavior: 'smooth'});
-
-                    const y = element.getBoundingClientRect().top + window.scrollY;
-                    console.log(y)
-                    window.scroll({
-                        top: y - 550,
-                        behavior: 'smooth'
-                    });
-
-                    this.isComplete = true;
-                
-
                 })
                 .catch(err => console.log(err))
         },

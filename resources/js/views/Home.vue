@@ -1,7 +1,20 @@
 <template>
     <div>
+        
+        <Audio></Audio>
+
+        <Cover></Cover>
+
+        <Mempelai></Mempelai>
+
+        <Acara></Acara>
+
+        <Gallery></Gallery>
+        
+        <Protocol></Protocol>
+
         <section id="bukutamu" class="uk-container uk-container-small">
-            <div class="tw-h-20"></div>
+           <div class="tw-h-24"></div>
 
             <section>
                 <h2 class="tw-text-3xl sm:tw-text-4xl tw-text-center" style="font-family: Scarlet"> Buku Tamu </h2>
@@ -16,22 +29,21 @@
                 <div id="modal-center" class="uk-flex-top uk-modal" uk-modal="">
                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="color:#333">
 
-                        <button class="uk-modal-close-default uk-icon uk-close" type="button" uk-close=""><svg width="14" height="14"
-                                viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                                <line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line>
-                            </svg></button>
-                        <p class="uk-text-center">Scan untuk memberikan kebahagian untuk Pengantin.</p>
+                        <button class="uk-modal-close-default uk-icon uk-close" type="button" uk-close="">
+                            
+                        </button>
+                        <p class="uk-text-center tw-mb-5">Scan untuk memberikan kebahagian kepada Pengantin.</p>
                         <ul uk-accordion="" class="uk-accordion">
                             <li class="uk-open">
                                 <a class="uk-accordion-title" href="#">OVO</a>
                                 <div class="uk-accordion-content">
-                                    <img src="images/gopay.jpeg">
+                                    <img src="assets/images/gifts/ovo.jpg" class="tw-mx-auto tw-h-auto" width="400" alt="OVO QR CODE">
                                 </div>
                             </li>
                             <li class="uk-open">
                                 <a class="uk-accordion-title" href="#">BCA</a>
                                 <div class="uk-accordion-content">
-                                    <img src="images/bca.jpeg">
+                                     <img src="assets/images/gifts/bca.jpg" class="tw-mx-auto tw-h-auto" width="400" alt="BCA QR CODE">
                                 </div>
                             </li>
 
@@ -43,52 +55,114 @@
 
             </section>
 
-            <div class="tw-h-20"></div>
+            <div class="tw-h-16"></div>
 
             <div id="guest_comment" class="uk-container uk-container-small">
-        
-                <Comment 
-                    v-for="(comment, index) in comments"
-                    v-bind:comment="comment"
-                    v-bind:key="index"></Comment>
+                <div>
+                    <Comment 
+                        v-for="(comment, index) in comments"
+                        v-bind:comment="comment"
+                        v-bind:key="index"></Comment>
+                </div>
             </div>
         </section>
+
+        <div class="tw-h-28"></div>
+
+        <p class="tw-text-xs tw-text-extralight tw-text-center tw-italic text-thelast">
+            - 'the last good man'
+        </p>
+
+        <hr class="divider-thelast">
+
+        <div class="tw-h-12"></div>
+
+        <Navbar></Navbar>
+        <MusicBox></MusicBox>
     </div>
 </template>
 
 <script>
 
 import Comment from './components/Comment.vue';
+import Gallery from './components/Gallery.vue';
+import Acara from './components/Acara.vue';
+import Mempelai from './components/Mempelai.vue';
+import Cover from './components/Cover.vue';
 import FormGuestBook from './components/FormGuestBook.vue';
+
+import Audio from './addon/Audio.vue';
+import Navbar from './addon/Navbar.vue';
+import MusicBox from './addon/MusicBox.vue';
+import Protocol from './addon/Protocol.vue';
 
 export default {
     components: {
+        Cover,
+        Mempelai,
+        Acara,
+        Gallery,
+        Protocol,
+        FormGuestBook,
         Comment,
-        FormGuestBook
+        Audio,
+        Navbar,
+        MusicBox,
     },
 
     data() {
         return {
             comments: [],
+            limit: 10,
+            busy: false
         }
     },
 
     created() {
-        axios.get('comments')
-            .then(({data}) => {
-                this.comments = data;
-            });
+        // this.fetchComments();
+        this.loadMore();
     },
 
     methods: {
+        fetchComments() {
+            axios.get('comments')
+                .then(({data}) => {
+                    this.comments = data;
+                });
+        },
         addComment(comment) {
             this.comments.unshift(comment);
-            
+        },
+
+        loadMore() {
+            console.log("Adding 10 more data results");
+            this.busy = true;
+              axios.get('comments')
+                .then(({data}) => {
+                    this.comments = data.data;
+
+                    const append = response.data.slice(this.comments.length, this.comments.length + this.limit);
+                    this.comments = this.comments.concat(append);
+                    this.busy = false;
+                });
         }
+
+          
     },
 }
 </script>
 
 <style scoped>
+.text-thelast {
+    color: rgba(206, 180, 108, 0.75);
+}
 
+.divider-thelast {
+    margin: 0 auto;
+    width: 15%;
+    margin-top: 3px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(206, 180, 108, 0.75), rgba(255, 255, 255, 0));
+}
 </style>
