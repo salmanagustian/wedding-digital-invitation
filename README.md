@@ -2,4 +2,4 @@
 wedding digital invitation anu aing
 
 ### DEMO
-[link](https://khansa-salman.com)
+[Click this link](https://khansa-salman.com)
