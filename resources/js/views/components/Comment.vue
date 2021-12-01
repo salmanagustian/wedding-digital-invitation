@@ -54,8 +54,6 @@ export default {
                 return 'Maaf tidak bisa hadir'
         },
         guestFirstName(name) {
-
-            console.log(name);
             return name.charAt(0).toUpperCase();
         }
     },
