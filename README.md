@@ -2,7 +2,7 @@
 
 <img src="docs.png" width="100%" alt="Docs">
 
-### Deskripsi
+### Description
 Just Simple Wedding Digital Invitation. <br>
 
 
@@ -13,6 +13,15 @@ Just Simple Wedding Digital Invitation. <br>
 - Tailwind Css
 - UI.kit
 - Laravel
+
+### Features
+- Greeting Card
+- Countdown Timer
+- Photo Gallery
+- Floating Music
+- Gifts (QR Code)
+- Guest Book
+- And more...
 
 
 
